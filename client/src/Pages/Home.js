@@ -1,5 +1,11 @@
 import React from "react";
-
+import SliderForm from "../Components/Home/SliderAndForm";
+import Navbar from "../Components/Navbar/Navbar";
 export default function Home() {
-  return <div className="w-3/4 m-auto">Home</div>;
+  return (
+    <div className="">
+      <Navbar />
+      <SliderForm />
+    </div>
+  );
 }

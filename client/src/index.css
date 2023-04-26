@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbar-bg{
+    background-color:rgb(76, 51, 152) ;
+}
+.navlink-color{
+    color:rgb(219, 219, 255) ;
+}
+.text-purple{
+    color: #5c39c6;
+}
+.navlink-bg{
+background-color: #5c39c6;
+border-top-right-radius: 7px;
+border-top-left-radius: 7px;
+}
+.navlink-hover:hover{
+    background-color: #5d3ebc;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+
+}
+.slider-bg{
+    background-image:
+    linear-gradient(to right, #5530c4d5, #775bcad9),
+    url('./Components/Images/smile-face.jpg');  
+    height: 32rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
