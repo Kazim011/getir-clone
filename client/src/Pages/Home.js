@@ -1,5 +1,10 @@
 import React from "react";
+import Kampanyalar from "../Components/Home/Kampanyalar";
 
 export default function Home() {
-  return <div className="w-3/4 m-auto">Home</div>;
+  return (
+    <div>
+      <Kampanyalar />
+    </div>
+  );
 }
