@@ -31,3 +31,6 @@ border-top-left-radius: 7px;
     background-size: cover;
     background-position: center;
 }
+.kampanya {
+  background-image: url("https://cdn.getir.com/getirweb-images/common/illustration/doodle.png");
+}
