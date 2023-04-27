@@ -6,7 +6,7 @@ export default function Kampanyalar() {
   return (
     <div className="w-3/4 m-auto">
       <h6 className="font-semibold mb-2">Kampanyalar</h6>
-      <div className="kampanya flex items-center relative overflow-hidden bg-indigo-400 z-1 mt-6 mb-6 rounded-lg">
+      <div className="kampanya flex items-center justify-between relative overflow-hidden bg-indigo-400 z-1 mt-6 mb-6 rounded-lg">
         <div className="flex flex-col items-start h-full justify-center ml-12 text-white">
           <h2 className="font-bold text-2xl mb-3">Getir'i indirin!</h2>
           <span className="text-base font-semibold">
@@ -30,7 +30,7 @@ export default function Kampanyalar() {
             />
           </div>
         </div>
-        <div className="">
+        <div className=" ml-36">
           <img
             className="w-full h-full object-contain"
             src={phoneLanding}
