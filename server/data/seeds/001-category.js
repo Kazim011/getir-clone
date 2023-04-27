@@ -78,6 +78,15 @@ exports.seed = async function (knex) {
       kategori_id: 2,
     },
     {
+      urun_adı: "Ananas",
+      urun_birim: "1 Adet",
+      urun_fiyat: "49.99",
+      urun_tur: "meyve",
+      urun_resim:
+        "https://cdn.getir.com/product/5ceae0399d3ea8000196e14a_tr_1623564030417.jpeg",
+      kategori_id: 2,
+    },
+    {
       urun_adı: "Domates",
       urun_birim: "1 Kg",
       urun_fiyat: "22.99",
@@ -87,6 +96,199 @@ exports.seed = async function (knex) {
       kategori_id: 2,
     },
     {
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },
+    {
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
+      urun_adı: "Lime",
+      urun_birim: "3 Adet",
+      urun_fiyat: "39.99",
+      urun_tur: "sebze",
+      urun_resim:
+        "http://cdn.getir.com/product/5ce6581cfd9b330001c4a889_tr_1585206960423.jpeg",
+      kategori_id: 2,
+    },{
       urun_adı: "Lime",
       urun_birim: "3 Adet",
       urun_fiyat: "39.99",

@@ -22,4 +22,11 @@ router.post("/getkategori/:id", async (req, res, next) => {
   }
   return res.status(200).json(obj);
 });
+router.get("/kategorial/:id", async (req, res, next) => {
+  const [kategori, tur] = await Promise.all([
+    Kategori.getKategori(),
+    Kategori.getTur({ kategori_id: req.params.id }),
+  ]);
+  return res.status(200).json({ kategori, tur, id: +req.params.id });
+});
 module.exports = router;
