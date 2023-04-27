@@ -4,9 +4,8 @@ import { SiHuawei, SiGoogleplay } from "react-icons/si";
 import etbis from "./img/etbis.png";
 
 export default function Footer() {
-<<<<<<< HEAD:client/src/Components/Footer/Footer.jsx
   return <div></div>;
-=======
+
   return (
     <div className="footer flex justify-between w-3/4 m-auto py-10">
       <div className="">
@@ -117,5 +116,4 @@ export default function Footer() {
       </div>
     </div>
   );
->>>>>>> 5e04af3652ea331af79b719e07643bfd8382b971:client/src/Components/Footer/Footer.js
 }
