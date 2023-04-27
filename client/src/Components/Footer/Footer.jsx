@@ -4,8 +4,6 @@ import { SiHuawei, SiGoogleplay } from "react-icons/si";
 import etbis from "./img/etbis.png";
 
 export default function Footer() {
-  return <div></div>;
-
   return (
     <div className="footer flex justify-between w-3/4 m-auto py-10">
       <div className="">
