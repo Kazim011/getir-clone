@@ -3,7 +3,7 @@ import React from "react";
 export default function SliderForm() {
   return (
     <div className="slider-bg ">
-      <div className="w-3/4 m-auto">
+      <div className="w-3/4 m-auto pt-9">
         <div className="pt-20 flex justify-between items-center">
           <div className="w-48">
             <img src="https://getir.com/_next/static/images/bimutluluk-b3a7fcb14fc9a9c09b60d7dc9b1b8fd6.svg"></img>

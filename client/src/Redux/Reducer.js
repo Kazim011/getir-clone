@@ -1,7 +1,9 @@
-import { MEYVE, SEBZE } from "./Actions";
+import { CHECKLOGIN, CHECKREGISTER, MEYVE, SEBZE } from "./Actions";
 const initialState = {
   Meyve: [],
   Sebze: [],
+  login: false,
+  register: false,
 };
 
 const Reducer = (state = initialState, action) => {
@@ -10,6 +12,16 @@ const Reducer = (state = initialState, action) => {
       return { ...state, Meyve: action.payload };
     case SEBZE:
       return { ...state, Sebze: action.payload };
+    case CHECKLOGIN:
+      return {
+        ...state,
+        login: action.payload,
+      };
+    case CHECKREGISTER:
+      return {
+        ...state,
+        register: action.payload,
+      };
     default:
       return state;
   }

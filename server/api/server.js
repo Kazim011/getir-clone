@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const kategori = require("./Kategori/Kategori-router");
 const urun = require("./Urun/Urun-Router");
-const auth = require("./auth/auth-router");
+const auth = require("./AdminAuth/auth-router");
 const cors = require("cors");
 
 app.use(express.json());

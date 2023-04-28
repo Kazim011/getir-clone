@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
 import { TfiWorld } from "react-icons/tfi";
-import { RiUserAddFill } from "react-icons/ri";
+import Login from "../Modal/LoginModal";
+import RegisterModal from "../Modal/RegisterModal";
 
 export default function Navbar() {
   return (
@@ -67,16 +67,11 @@ export default function Navbar() {
               <div>Türkçe(TR)</div>
             </div>
             <div className="flex items-center gap-x-1 cursor-pointer">
-              <div>
-                <CgProfile className="text-2xl" />
-              </div>
-              <div>Giriş Yap</div>
+              <Login />
             </div>
             <div className="mr-2 flex items-center gap-x-1 cursor-pointer">
-              <div>
-                <RiUserAddFill className="text-2xl" />
-              </div>
-              <div>Kayıt Ol</div>
+              <div></div>
+              <RegisterModal />
             </div>
           </div>
         </div>
