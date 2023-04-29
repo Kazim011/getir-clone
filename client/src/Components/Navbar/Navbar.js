@@ -79,7 +79,7 @@ export default function Navbar() {
                 </div>
               )}
               {token && (
-                <div className="flex justify-center items-center gap-x-1 cursor-pointer relative">
+                <div className="flex justify-center items-center gap-x-4 cursor-pointer relative">
                   <Kampanyalar />
                   <AccountData
                     setAccountCheck={setAccountCheck}

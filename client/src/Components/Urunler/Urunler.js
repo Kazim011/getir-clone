@@ -1,8 +1,13 @@
 import axios from "axios";
-import React, { useRef, useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { setCheckLogin } from "../../Redux/Actions";
 
 export default function Urunler() {
+  const token = Cookies.get("token");
+  const dispatch = useDispatch();
   const [urun, setUrun] = useState({});
   const { id } = useParams();
 
@@ -28,9 +33,12 @@ export default function Urunler() {
                   <div className="text-purple font-medium">₺{i.urun_fiyat}</div>
                   <div className="font-medium">{i.urun_adı}</div>
                   <div className="text-gray-400">{i.urun_birim}</div>
-                  <div className="absolute top-2 right-2 border text-purple px-3 py-1 cursor-pointer shadow-md rounded-lg text-lg">
+                  <button
+                    onClick={() => (token ? "" : dispatch(setCheckLogin(true)))}
+                    className="absolute top-2 right-2 border text-purple px-3 py-1 cursor-pointer shadow-md rounded-lg text-lg"
+                  >
                     +
-                  </div>
+                  </button>
                 </div>
               ))}
             </div>
