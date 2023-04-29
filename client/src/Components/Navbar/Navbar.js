@@ -3,8 +3,15 @@ import { NavLink } from "react-router-dom";
 import { TfiWorld } from "react-icons/tfi";
 import Login from "../Modal/LoginModal";
 import RegisterModal from "../Modal/RegisterModal";
+import Cookies from "js-cookie";
+import { AiOutlineGift } from "react-icons/ai";
+import AccountData from "../Account/AccountButton";
+import Kampanyalar from "./Kampanyalar";
+import AccountSettings from "../Account/AccountSettings";
 
 export default function Navbar() {
+  const token = Cookies.get("token");
+  const [accountCheck, setAccountCheck] = useState(false);
   return (
     <div className=" relative">
       <div className="w-full m-auto fixed  z-20  navbar-bg ">
@@ -61,17 +68,26 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-x-4 mt-1">
             <div className="flex items-center gap-x-1 cursor-pointer">
-              <div>
+              <div className="flex items-center gap-x-2 mr-2">
                 <TfiWorld className="text-2xl" />
+                <div>Türkçe(TR)</div>
               </div>
-              <div>Türkçe(TR)</div>
-            </div>
-            <div className="flex items-center gap-x-1 cursor-pointer">
-              <Login />
-            </div>
-            <div className="mr-2 flex items-center gap-x-1 cursor-pointer">
-              <div></div>
-              <RegisterModal />
+              {!token && (
+                <div className="flex items-center gap-x-1 cursor-pointer">
+                  <Login />
+                  <RegisterModal />
+                </div>
+              )}
+              {token && (
+                <div className="flex justify-center items-center gap-x-1 cursor-pointer relative">
+                  <Kampanyalar />
+                  <AccountData
+                    setAccountCheck={setAccountCheck}
+                    check={accountCheck}
+                  />
+                  {accountCheck && <AccountSettings />}
+                </div>
+              )}
             </div>
           </div>
         </div>

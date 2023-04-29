@@ -4,7 +4,7 @@ import UrunlerKategori from "./Pages/UrunlerKategori";
 
 function App() {
   return (
-    <div className="">
+    <div className="bg-gray-100">
       <Switch>
         <Route exact path="/">
           <Home />

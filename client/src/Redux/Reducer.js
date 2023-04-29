@@ -1,7 +1,7 @@
 import { CHECKLOGIN, CHECKREGISTER } from "./Actions";
 const initialState = {
   login: false,
-  register: false,
+  registers: false,
 };
 
 const Reducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const Reducer = (state = initialState, action) => {
     case CHECKREGISTER:
       return {
         ...state,
-        register: action.payload,
+        registers: action.payload,
       };
     default:
       return state;

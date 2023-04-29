@@ -3,10 +3,31 @@ import { IoClose } from "react-icons/io5";
 import { RiUserAddFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { setCheckLogin, setCheckRegister } from "../../Redux/Actions";
-
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { api } from "../../Utills/Utills";
+import { useHistory } from "react-router-dom";
 function RegisterModal() {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const { register } = useSelector((data) => data);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const { registers } = useSelector((data) => data);
+  const onSubmit = (data) => {
+    axios
+      .post(api + "/userAuth/register", data)
+      .then((r) => {
+        dispatch(setCheckRegister(false));
+        dispatch(setCheckLogin(true));
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <button
@@ -20,8 +41,11 @@ function RegisterModal() {
         <span>Kayıt Ol</span>
       </button>
 
-      {register && (
-        <div className="modal cursor-default ">
+      {registers && (
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="modal cursor-default "
+        >
           <div className="modal-content">
             <div className="w-11/12 m-auto">
               <div className="flex items-center justify-between  text-bold">
@@ -40,18 +64,21 @@ function RegisterModal() {
               </div>
               <div className="mb-2">
                 <input
+                  {...register("user_telefon")}
                   className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="Telefon Numarası"
                 />
               </div>
               <div className="mb-2">
                 <input
+                  {...register("user_name")}
                   className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="Ad Soyad"
                 />
               </div>{" "}
               <div className="">
                 <input
+                  {...register("user_email")}
                   className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="E-Posta"
                 />
@@ -98,7 +125,7 @@ function RegisterModal() {
               </button>{" "}
             </p>
           </div>
-        </div>
+        </form>
       )}
     </div>
   );

@@ -19,7 +19,7 @@ export default function Urunler() {
           <div>
             <div className="mt-4"></div>
             <div id={key}>{key}</div>
-            <div>
+            <div className="flex flex-wrap">
               {value.map((i) => (
                 <div className="text-center bg-white p-4 relative w-1/4">
                   <div className="">
@@ -28,7 +28,7 @@ export default function Urunler() {
                   <div className="text-purple font-medium">₺{i.urun_fiyat}</div>
                   <div className="font-medium">{i.urun_adı}</div>
                   <div className="text-gray-400">{i.urun_birim}</div>
-                  <div className="absolute top-2 right-2 border text-purple px-3 py-1 shadow-md rounded-lg text-lg">
+                  <div className="absolute top-2 right-2 border text-purple px-3 py-1 cursor-pointer shadow-md rounded-lg text-lg">
                     +
                   </div>
                 </div>

@@ -3,8 +3,28 @@ import { IoClose } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { setCheckLogin, setCheckRegister } from "../../Redux/Actions";
-
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { api } from "../../Utills/Utills";
+import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 function LoginModal() {
+  const history = useHistory();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    axios
+      .post(api + "/userAuth/login", data)
+      .then((r) => {
+        Cookies.set("token", r.data.token);
+        history.go(0);
+      })
+      .catch((err) => console.log(err));
+  };
   const dispatch = useDispatch();
   const { login } = useSelector((data) => data);
 
@@ -22,7 +42,10 @@ function LoginModal() {
       </button>
 
       {login && (
-        <div className="modal cursor-default">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="modal cursor-default"
+        >
           <div className="modal-content">
             <div className="w-10/12 m-auto">
               <div className="flex items-center justify-between  text-bold">
@@ -41,6 +64,9 @@ function LoginModal() {
               </div>
               <div>
                 <input
+                  {...register("user_telefon", {
+                    required: "Lütfen telefon numaranızı giriniz.",
+                  })}
                   className="w-full p-3 mt-8 outline-none border-2 rounded-md mb-3"
                   placeholder="Telefon Numarası"
                 />
@@ -70,7 +96,7 @@ function LoginModal() {
               </button>
             </p>
           </div>
-        </div>
+        </form>
       )}
     </div>
   );
