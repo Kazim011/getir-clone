@@ -1,0 +1,3 @@
+User Register --> http://localhost:9000/user/register --> Kullanıcının register olması için buraya istek atılması gerek!!!
+
+User Login --> http://localhost:9000/user/login --> Kullanıcının login olması için buraya istek atılması gerek !!
