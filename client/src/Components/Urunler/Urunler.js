@@ -7,6 +7,7 @@ import { setCheckLogin } from "../../Redux/Actions";
 
 export default function Urunler() {
   const token = Cookies.get("token");
+  console.log(token);
   const dispatch = useDispatch();
   const [urun, setUrun] = useState({});
   const { id } = useParams();
@@ -34,7 +35,14 @@ export default function Urunler() {
                   <div className="font-medium">{i.urun_adı}</div>
                   <div className="text-gray-400">{i.urun_birim}</div>
                   <button
-                    onClick={() => (token ? "" : dispatch(setCheckLogin(true)))}
+                    onClick={() => {
+                      console.log(2);
+                      if (token) {
+                      } else {
+                        console.log(5);
+                        dispatch(setCheckLogin(true));
+                      }
+                    }}
                     className="absolute top-2 right-2 border text-purple px-3 py-1 cursor-pointer shadow-md rounded-lg text-lg"
                   >
                     +
