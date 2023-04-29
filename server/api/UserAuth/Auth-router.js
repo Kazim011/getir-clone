@@ -22,7 +22,7 @@ router.post(
 );
 router.post(
   "/login",
-  mw.paramsCheck,
+  mw.userLoginParamCheck,
   mw.LoginPhoneCheck,
   async (req, res, next) => {
     try {
@@ -33,5 +33,7 @@ router.post(
     }
   }
 );
+
+router.get("")
 
 module.exports = router;

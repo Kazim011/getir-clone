@@ -7,7 +7,14 @@ async function paramsCheck(req, res, next) {
     next();
   }
 }
-
+async function userLoginParamCheck(req,res,next) {
+  const { user_telefon } = req.body;
+  if (!user_telefon) {
+    return res.status(400).json({ message: "Lütfen boş alan bırakmayınız!" });
+  } else {
+    next();
+  }
+}
 async function RegisterPhoneCheck(req, res, next) {
   const user = await User.getFilterUser({
     user_telefon: req.body.user_telefon,
@@ -33,4 +40,10 @@ async function LoginPhoneCheck(req, res, next) {
       .json({ message: "Bu telefona ait kullanıcı bulunmamaktadır !" });
   }
 }
-module.exports = { paramsCheck, RegisterPhoneCheck, LoginPhoneCheck };
+
+module.exports = {
+  paramsCheck,
+  RegisterPhoneCheck,
+  LoginPhoneCheck,
+  userLoginParamCheck,
+};
