@@ -11,15 +11,16 @@ router.get("/getkategori", async (req, res, next) => {
   }
 });
 router.post("/getkategori/:id", async (req, res, next) => {
-  const array = ["meyve", "sebze"];
+  const array = await Kategori.getTur({ kategori_id: req.params.id });
   let obj = {};
   for (let i = 0; i < array.length; i++) {
     const data = await Kategori.getFilterKategori({
-      urun_tur: array[i],
+      urun_tur: array[i].urun_tur,
       kategori_id: req.params.id,
     });
-    obj[array[i]] = data;
+    obj[array[i].urun_tur] = data;
   }
+  console.log(obj);
   return res.status(200).json(obj);
 });
 router.get("/kategorial/:id", async (req, res, next) => {

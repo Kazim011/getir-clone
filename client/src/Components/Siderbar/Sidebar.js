@@ -16,18 +16,15 @@ export default function Sidebar() {
         console.log(result);
       })
       .catch((err) => {});
-  }, []);
+  }, [id]);
 
   return (
-    <div className="relative ">
-      <div className="fixed w-2/12 top-36 ">
+    <div className="relative  ">
+      <div className=" fixed w-2/12 top-36 ">
         <h1 className="mb-2 mt-4">Kategoriler</h1>
-        <div className="bg-white border rounded-md">
+        <div className="bg-white border rounded-md overflow-y-scroll max-h-[700px] ">
           {kategori.map((i) => (
-            <Link
-              className=""
-              to={`/${i.kategori_adı.replaceAll(" ", "")}/${i.kategori_id}`}
-            >
+            <Link className="" to={`/kategori/${i.kategori_id}`}>
               <div className="flex  p-2 gap-x-3 ">
                 <div className="w-7">
                   <img
@@ -45,7 +42,7 @@ export default function Sidebar() {
                         smooth={true}
                         duration={500}
                         className="font-normal block"
-                      > 
+                      >
                         {i.urun_tur}
                       </ScrollLink>
                     ))}

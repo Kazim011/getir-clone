@@ -1,6 +1,6 @@
 import Home from "./Pages/Home";
 import { Switch, Route } from "react-router-dom";
-import MeyveSebze from "./Pages/MeyveSebze";
+import UrunlerKategori from "./Pages/UrunlerKategori";
 
 function App() {
   return (
@@ -9,10 +9,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/Meyve&Sebze/:id">
-          <MeyveSebze />
+        <Route exact path="/kategori/:id">
+          <UrunlerKategori />
         </Route>
-        <Route path="/TemelGıda/:id"></Route>
+        <Route exact path="/TemelGıda/:id"></Route>
       </Switch>
     </div>
   );
