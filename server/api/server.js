@@ -5,6 +5,7 @@ const urun = require("./Urun/Urun-Router");
 const AdminAuth = require("./AdminAuth/auth-router");
 const UserAuth = require("./UserAuth/Auth-router");
 const User = require("./User/User-router");
+const Cart = require("./Cart/Cart-router");
 const cors = require("cors");
 
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use("/urun", urun);
 app.use("/auth", AdminAuth);
 app.use("/userAuth", UserAuth);
 app.use("/user", User);
+app.use("/cart", Cart);
 app.use((err, req, res, next) => {
   // eslint-disable-line
   res.status(err.status || 500).json({

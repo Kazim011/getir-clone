@@ -1,17 +1,32 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setCheckLogin } from "../../Redux/Actions";
+import { setCheckLogin, setRand } from "../../Redux/Actions";
+import { api } from "../../Utills/Utills";
 
 export default function Urunler() {
   const token = Cookies.get("token");
-  console.log(token);
   const dispatch = useDispatch();
   const [urun, setUrun] = useState({});
   const { id } = useParams();
-
+  const addUruninCart = (e, i) => {
+    if (token) {
+      axios
+        .post(
+          api + "/cart/addcart",
+          { urun_id: i.urun_id },
+          { headers: { Authorization: token } }
+        )
+        .then((r) => {
+          dispatch(setRand());
+        })
+        .catch((err) => console.log(err));
+    } else {
+      dispatch(setCheckLogin(true));
+    }
+  };
   useEffect(() => {
     axios.post("http://localhost:9000/kategori/getkategori/" + id).then((r) => {
       setUrun(r.data);
@@ -35,13 +50,8 @@ export default function Urunler() {
                   <div className="font-medium">{i.urun_adı}</div>
                   <div className="text-gray-400">{i.urun_birim}</div>
                   <button
-                    onClick={() => {
-                      console.log(2);
-                      if (token) {
-                      } else {
-                        console.log(5);
-                        dispatch(setCheckLogin(true));
-                      }
+                    onClick={(e) => {
+                      addUruninCart(e, i);
                     }}
                     className="absolute top-2 right-2 border text-purple px-3 py-1 cursor-pointer shadow-md rounded-lg text-lg"
                   >

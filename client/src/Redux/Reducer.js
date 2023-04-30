@@ -1,7 +1,17 @@
-import { CHECKLOGIN, CHECKREGISTER } from "./Actions";
+import {
+  CHECKLOGIN,
+  CHECKREGISTER,
+  RAND,
+  SEPET,
+  total,
+  TOTAL,
+} from "./Actions";
 const initialState = {
   login: false,
   registers: false,
+  sepet: [],
+  rand: 0,
+  total: 0,
 };
 
 const Reducer = (state = initialState, action) => {
@@ -16,6 +26,13 @@ const Reducer = (state = initialState, action) => {
         ...state,
         registers: action.payload,
       };
+    case SEPET:
+      return { ...state, sepet: action.payload };
+    case RAND:
+      return { ...state, rand: action.payload };
+    case TOTAL:
+      return { ...state, total: action.payload };
+
     default:
       return state;
   }

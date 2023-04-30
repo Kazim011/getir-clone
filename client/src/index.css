@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 body{
-  background-color:rgb(243 244 246 )
+  background-color:rgb(243 244 246 );
+  
 }
 .navbar-bg {
   background-color: rgb(76, 51, 152);
@@ -81,4 +82,19 @@ body{
 }
 #checks {
   accent-color: #5d3ebc;
+}::-webkit-scrollbar {
+  width: 0; /* Scrollbar'ın genişliği */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Scrollbar'ın arka plan rengi */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar'ın dolgu rengi */
+  border-radius: 0.5em; /* Scrollbar'ın köşe yarıçapı */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Scrollbar üzerine gelindiğinde dolgu rengi */
 }
