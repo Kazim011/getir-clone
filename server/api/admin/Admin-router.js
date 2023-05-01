@@ -9,4 +9,9 @@ router.get("/geturun/:id", tokenVerify, async (req, res, next) => {
   const data = await Admin.getUrunfromKategori(req.params.id);
   return res.status(200).json(data);
 });
+
+router.post("/gettur", tokenVerify, async (req, res, next) => {
+  const data = await Admin.getTur({ kategori_id: req.body.kategori_id });
+  return res.status(200).json(data);
+});
 module.exports = router;

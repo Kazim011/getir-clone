@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineBank } from "react-icons/ai";
 import { FaProductHunt } from "react-icons/fa";
+import { GoDiffAdded } from "react-icons/go";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { api } from "../utills/api";
 import { setCheck, setKategori } from "../Redux/Action";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 
 export default function Navbar() {
   const token = Cookies.get("admin");
@@ -16,8 +17,10 @@ export default function Navbar() {
   const handleClickClose = (e) => {
     console.log(e.currentTarget.role);
   };
+
+  const handleFormProduct = () => {};
+
   useEffect(() => {
-  
     axios
       .get(api + "/admin/tumurun", {
         headers: {
@@ -65,6 +68,18 @@ export default function Navbar() {
               ))}
           </div>
         </div>
+        <NavLink
+          activeClassName="font-bold"
+          to="/addurun"
+          className=" flex items-center gap-4 cursor-pointer"
+        >
+          <div>
+            <GoDiffAdded className=" text-3xl" />
+          </div>
+          <div>
+            <p>Ürün Ekle</p>
+          </div>
+        </NavLink>
       </div>
     </div>
   );

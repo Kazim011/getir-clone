@@ -1,19 +1,20 @@
 import React from "react";
-import AddUrun from "../Admin/AddUrunPanel";
-import UrunlerPanel from "../Admin/UrunlerPanel";
+import AddUrunPanel from "../Admin/AddUrunPanel";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 
-export default function Urunler() {
+const AddUrun = () => {
   return (
     <div className="flex">
       <Navbar />
       <div className="w-4/5 relative ">
         <Header />
         <div className="">
-          <UrunlerPanel />
+          <AddUrunPanel />
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default AddUrun;

@@ -4,6 +4,7 @@ import { Switch } from "react-router-dom";
 import PrivateRouter from "./Components/utills/PrivateRouter";
 import Home from "./Components/Pages/Home";
 import Urunler from "./Components/Pages/Urunler";
+import AddUrun from "./Components/Pages/AddUrun";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path="/kategori/:id">
             <Urunler />
+          </Route>
+          <Route path="/addurun">
+            <AddUrun />
           </Route>
         </PrivateRouter>
       </Switch>

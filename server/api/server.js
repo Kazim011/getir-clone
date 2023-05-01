@@ -18,7 +18,7 @@ app.use("/auth", AdminAuth);
 app.use("/userAuth", UserAuth);
 app.use("/user", User);
 app.use("/cart", Cart);
-app.use("/admin",Admin);
+app.use("/admin", Admin);
 app.use((err, req, res, next) => {
   // eslint-disable-line
   res.status(err.status || 500).json({

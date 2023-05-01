@@ -17,6 +17,10 @@ async function create(payload) {
   return await getById(id);
 }
 
+async function getTur(data) {
+  return await db("urunler").distinct("urun_tur").where(data);
+}
+
 async function getAllKategori(params) {
   return await db("kategori");
 }
@@ -30,4 +34,5 @@ module.exports = {
   create,
   getAllKategori,
   getUrunfromKategori,
+  getTur,
 };
