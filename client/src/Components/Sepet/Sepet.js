@@ -65,7 +65,7 @@ export default function Sepet() {
                   Sepete Git
                 </Link>
                 <p className="w-1/3 text-center rounded-r-lg border-2 border-purple-900 py-3 text-purple-900 font-semibold">
-                  ₺{total.toFixed(2)}
+                  ₺{total?.toFixed(2)}
                 </p>
               </div>
             </div>
