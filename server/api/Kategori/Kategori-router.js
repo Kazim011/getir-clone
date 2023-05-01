@@ -20,7 +20,6 @@ router.post("/getkategori/:id", async (req, res, next) => {
     });
     obj[array[i].urun_tur] = data;
   }
-  console.log(obj);
   return res.status(200).json(obj);
 });
 router.get("/kategorial/:id", async (req, res, next) => {

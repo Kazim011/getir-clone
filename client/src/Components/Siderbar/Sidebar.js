@@ -30,7 +30,7 @@ export default function Sidebar() {
       <div className="relative  ">
         <div className="fixed w-2/12 top-36">
           <h1 className="mb-2 mt-4">Kategoriler</h1>
-          <div className="bg-white border rounded-md overflow-y-scroll max-h-[700px]">
+          <div className="bg-white border rounded-md overflow-y-scroll max-h-[700px] sidebar">
             {kategori.map((item) => (
               <Link
                 onClick={() => {
