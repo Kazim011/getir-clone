@@ -23,7 +23,7 @@ async function toplam(id) {
     .select(db.raw("SUM(urun_adet * urun_fiyat) as total"))
     .from("cart as c")
     .leftJoin("urunler as u", "u.urun_id", "c.urun_id")
-    .where("c.user_id", 1)
+    .where("c.user_id", id)
     .first();
 }
 async function resetCart(id) {

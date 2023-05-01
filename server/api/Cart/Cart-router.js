@@ -34,6 +34,7 @@ router.post("/removecart", Userjwt, async (req, res, next) => {
 });
 router.get("/getcart", Userjwt, async (req, res, next) => {
   const data = await Cart.getUserCart(req.user.user_id);
+  
   const { total } = await Cart.toplam(req.user.user_id);
   console.log(total);
   return res.status(200).json({ data, total });
