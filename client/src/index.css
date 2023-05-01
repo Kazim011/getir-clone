@@ -82,8 +82,10 @@ body{
 }
 #checks {
   accent-color: #5d3ebc;
-}::-webkit-scrollbar {
-  width: 0; /* Scrollbar'ın genişliği */
+
+}
+.sidebar::-webkit-scrollbar {
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -93,8 +95,11 @@ body{
 ::-webkit-scrollbar-thumb {
   background-color: #888; /* Scrollbar'ın dolgu rengi */
   border-radius: 0.5em; /* Scrollbar'ın köşe yarıçapı */
-}
 
+}
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* Scrollbar üzerine gelindiğinde dolgu rengi */
 }
+
+
+

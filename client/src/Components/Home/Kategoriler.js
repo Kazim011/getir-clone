@@ -14,7 +14,6 @@ export default function Kategoriler() {
         console.log(err);
       });
   }, []);
-  console.log(kategori);
   return (
     <div className="w-3/4 m-auto">
       <div className="text-sm font-semibold mt-8">Kategoriler</div>

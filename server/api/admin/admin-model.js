@@ -17,9 +17,17 @@ async function create(payload) {
   return await getById(id);
 }
 
+async function getAllKategori(params) {
+  return await db("kategori");
+}
+async function getUrunfromKategori(id) {
+  return await db("urunler").where("kategori_id", id);
+}
 module.exports = {
   getAll,
   getById,
   getByFilter,
   create,
+  getAllKategori,
+  getUrunfromKategori,
 };

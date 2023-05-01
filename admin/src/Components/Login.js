@@ -1,8 +1,10 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-
+import { api } from "./utills/api";
+import Cookies from "js-cookie";
 export default function Login() {
   const history = useHistory();
   const {
@@ -13,7 +15,10 @@ export default function Login() {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
-    console.log(data);
+    axios.post(api + "/auth/login", data).then((r) => {
+      Cookies.set("admin", r.data.token);
+      history.push("/home");
+    });
   };
 
   return (
@@ -47,7 +52,10 @@ export default function Login() {
         </div>
         <Link to="/register">Hesabınız yok mu ?</Link>
         <div className="text-center mt-4">
-          <button className="text-black font-bold p-3 w-1/2 border-2 bg-white">
+          <button
+            type="submit"
+            className="text-black font-bold p-3 w-1/2 border-2 bg-white"
+          >
             Giriş Yap
           </button>
         </div>
