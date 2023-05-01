@@ -4,6 +4,7 @@ import { BsTrash } from "react-icons/bs";
 import { IoIosAdd } from "react-icons/io";
 import { setRand } from "../../Redux/Actions";
 import { useDispatch } from "react-redux";
+import { HiMinusSm } from "react-icons/hi";
 import Cookies from "js-cookie";
 import { api } from "../../Utills/Utills";
 export default function SepetButton({ i }) {
@@ -40,7 +41,7 @@ export default function SepetButton({ i }) {
         onClick={(e) => handleSepetIslem(e)}
         className="border p-2 rounded-md shadow-md cursor-pointer "
       >
-        <BsTrash className=" " />
+        {i.urun_adet < 2 ? <BsTrash /> : <HiMinusSm />}
       </div>
       <p className="border px-2 py-1 bg-purple-900 text-white ">
         {i.urun_adet}

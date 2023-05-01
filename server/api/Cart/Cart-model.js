@@ -19,10 +19,15 @@ async function getUserCart(id) {
     .where("c.user_id", id);
 }
 async function toplam(id) {
- return await db.select(db.raw('SUM(urun_adet * urun_fiyat) as total'))
-  .from('cart as c')
-  .leftJoin('urunler as u', 'u.urun_id', 'c.urun_id')
-  .where('c.user_id', 1).first()
+  return await db
+    .select(db.raw("SUM(urun_adet * urun_fiyat) as total"))
+    .from("cart as c")
+    .leftJoin("urunler as u", "u.urun_id", "c.urun_id")
+    .where("c.user_id", 1)
+    .first();
+}
+async function resetCart(id) {
+  return await db("cart").where("user_id", id).del();
 }
 
 module.exports = {
@@ -32,4 +37,5 @@ module.exports = {
   remoUruninCart,
   getUserCart,
   toplam,
+  resetCart,
 };

@@ -9,10 +9,8 @@ import SepetButton from "./SepetButton";
 
 export default function Sepet() {
   const token = Cookies.get("token");
-  const { sepet } = useSelector((data) => data);
   const dispatch = useDispatch();
-  const { rand, total } = useSelector((data) => data);
-  console.log(total);
+  const { rand, total ,sepet} = useSelector((data) => data);
   useEffect(() => {
     axios
       .get(api + "/cart/getcart", { headers: { Authorization: token } })
@@ -28,7 +26,7 @@ export default function Sepet() {
         <div className="">
           <div>Sepetim</div>
         </div>
-        <div className=" overflow-y-scroll max-h-[300px] mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
+        <div className=" overflow-y-scroll max-h-[330px] mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
           {sepet.length < 1 ? (
             <div className="flex flex-col items-center justify-center h-80">
               <div className="mb-8">

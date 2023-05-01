@@ -1,6 +1,7 @@
 import Home from "./Pages/Home";
 import { Switch, Route } from "react-router-dom";
 import UrunlerKategori from "./Pages/UrunlerKategori";
+import Cart from "./Pages/Cart";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <UrunlerKategori />
         </Route>
         <Route exact path="/TemelGıda/:id"></Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
       </Switch>
     </div>
   );
