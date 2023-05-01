@@ -10,7 +10,7 @@ import SepetButton from "./SepetButton";
 export default function Sepet() {
   const token = Cookies.get("token");
   const dispatch = useDispatch();
-  const { rand, total ,sepet} = useSelector((data) => data);
+  const { rand, total, sepet } = useSelector((data) => data);
   useEffect(() => {
     axios
       .get(api + "/cart/getcart", { headers: { Authorization: token } })
@@ -26,7 +26,7 @@ export default function Sepet() {
         <div className="">
           <div>Sepetim</div>
         </div>
-        <div className=" overflow-y-scroll max-h-[330px] mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
+        <div className="   mt-1  bg-white   border-2 border-yellow-400 ">
           {sepet.length < 1 ? (
             <div className="flex flex-col items-center justify-center h-80">
               <div className="mb-8">
@@ -43,21 +43,23 @@ export default function Sepet() {
               </p>
             </div>
           ) : (
-            <div className="px-5 divide-y-2 divide-gray-100 ">
-              {sepet.map((i) => (
-                <div className="flex py-3  items-center ">
-                  <div className="w-2/3">
-                    <p className="text-gray-400">{i.urun_adı}</p>
-                    <p className="text-purple-800 font-semibold">
-                    ₺{i.urun_fiyat}
-                    </p>
+            <div>
+              <div className="px-5 divide-y-2 divide-gray-100 max-h-96 overflow-y-scroll sc">
+                {sepet.map((i) => (
+                  <div className="flex py-3  items-center  ">
+                    <div className="w-2/3">
+                      <p className="text-gray-400">{i.urun_adı}</p>
+                      <p className="text-purple-800 font-semibold">
+                        ₺{i.urun_fiyat}
+                      </p>
+                    </div>
+                    <div className="w-1/3">
+                      <SepetButton i={i} />
+                    </div>
                   </div>
-                  <div className="w-1/3">
-                    <SepetButton i={i} />
-                  </div>
-                </div>
-              ))}
-              <div className="flex py-5 items-center">
+                ))}
+              </div>
+              <div className="flex py-5 px-5 items-center">
                 <Link
                   className="w-2/3 py-3 bg-purple-900 text-center border-2 text-white border-purple-900 font-semibold rounded-l-lg"
                   to="/cart"
@@ -65,7 +67,7 @@ export default function Sepet() {
                   Sepete Git
                 </Link>
                 <p className="w-1/3 text-center rounded-r-lg border-2 border-purple-900 py-3 text-purple-900 font-semibold">
-                ₺{total.toFixed(2)}
+                  ₺{total.toFixed(2)}
                 </p>
               </div>
             </div>
