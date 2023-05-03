@@ -36,4 +36,16 @@ router.post("/addkategori", jwt, async (req, res, next) => {
   const data = await Kategori.addKategori(req.body);
   return res.status(200).json({ message: "Başarıyla eklendi" });
 });
+
+router.post("/deletekategori", jwt, async (req, res, next) => {
+  const data = await Kategori.deleteKategori({
+    kategori_id: req.body.kategori_id,
+  });
+  return res.status(200).json({ message: "kategori başarıyla silindi" });
+});
+
+router.post("/updatekategori", async (req, res, next) => {
+  await Kategori.updateKategori(req.body.kategori_id, req.body);
+  return res.status(200).json({ message: "kategori başarıyla güncellendi." });
+});
 module.exports = router;

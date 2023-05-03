@@ -12,9 +12,18 @@ async function getTur(data) {
 async function addKategori(data) {
   return await db("kategori").insert(data);
 }
+async function deleteKategori(data) {
+  return await db("kategori").where(data).del();
+}
+
+async function updateKategori(id, data) {
+  return await db("kategori").where("kategori_id", id).update(data);
+}
 module.exports = {
   getKategori,
   getFilterKategori,
   getTur,
   addKategori,
+  deleteKategori,
+  updateKategori,
 };

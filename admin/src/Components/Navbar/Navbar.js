@@ -9,6 +9,7 @@ import { api } from "../utills/api";
 import { setCheck, setKategori } from "../Redux/Action";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { MdLibraryAdd } from "react-icons/md";
+import { FiFolderMinus } from "react-icons/fi";
 import { BiMessageSquareAdd } from "react-icons/bi";
 
 export default function Navbar() {
@@ -47,7 +48,7 @@ export default function Navbar() {
             >
               Kategoriler
             </p>
-            <div  className="max-h-[600px] overflow-y-scroll">
+            <div className="max-h-[600px] overflow-y-scroll">
               {check &&
                 kategoriler.map((i, sayac) => (
                   <NavLink
@@ -84,6 +85,14 @@ export default function Navbar() {
         >
           <MdLibraryAdd className="text-3xl text-red-700" />
           <p className="">Kategori&Tur Ekle</p>
+        </NavLink>
+        <NavLink
+          className="flex items-center gap-4"
+          activeClassName="font-bold"
+          to="/kategoritursil"
+        >
+          <FiFolderMinus className="text-3xl text-blue-700" />
+          <p className="">Kategori&Tur Sil</p>
         </NavLink>
       </div>
     </div>

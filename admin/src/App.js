@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import UrunDeleteModal from "./Components/Admin/UrunEditDelete/UrunDeleteModal";
 import UrunEditModal from "./Components/Admin/UrunEditDelete/UrunEditModal";
 import KategoriTurEkle from "./Components/Kategori&Tur/KategoriTurEkle";
+import KategoriTurSil from "./Components/Kategori&Tur/KategoriTurSil";
 
 function App() {
   const { deleteCheck, editCheck } = useSelector((data) => data);
@@ -35,6 +36,9 @@ function App() {
                 </Route>
                 <Route exact path="/kategoriTur">
                   <KategoriTurEkle />
+                </Route>
+                <Route exact path="/kategoriTurSil">
+                  <KategoriTurSil />
                 </Route>
               </div>
             </div>
