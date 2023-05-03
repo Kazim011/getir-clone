@@ -11,21 +11,24 @@ router.get("/getkategori", async (req, res, next) => {
   }
 });
 router.post("/getkategori/:id", async (req, res, next) => {
-  const array = await Kategori.getTur({ kategori_id: req.params.id });
+  const array = await Kategori.getTur(req.params.id);
+  console.log(array);
   let obj = {};
   for (let i = 0; i < array.length; i++) {
     const data = await Kategori.getFilterKategori({
-      urun_tur: array[i].urun_tur,
+      tur_id: array[i].tur_id,
       kategori_id: req.params.id,
     });
+    console.log(data);
     obj[array[i].urun_tur] = data;
   }
+  console.log(obj);
   return res.status(200).json(obj);
 });
 router.get("/kategorial/:id", async (req, res, next) => {
   const [kategori, tur] = await Promise.all([
     Kategori.getKategori(),
-    Kategori.getTur({ kategori_id: req.params.id }),
+    Kategori.getTur(req.params.id),
   ]);
   return res.status(200).json({ kategori, tur, id: +req.params.id });
 });

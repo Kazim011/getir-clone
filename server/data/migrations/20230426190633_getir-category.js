@@ -15,7 +15,12 @@ exports.up = function (knex) {
       u.string("urun_resim").notNullable();
       u.string("urun_birim").notNullable();
       u.double("urun_fiyat").notNullable();
-      u.string("urun_tur").notNullable();
+      u.integer("tur_id")
+        .notNullable()
+        .references("tur_id")
+        .inTable("tur")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       u.integer("kategori_id")
         .notNullable()
         .references("kategori_id")

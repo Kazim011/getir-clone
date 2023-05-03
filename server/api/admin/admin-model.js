@@ -18,7 +18,7 @@ async function create(payload) {
 }
 
 async function getTur(data) {
-  return await db("urunler").distinct("urun_tur").where(data);
+  return await db("tur").where("kategori_id", data);
 }
 
 async function getAllKategori(params) {

@@ -39,7 +39,7 @@ export default function Urunler() {
         {Object.entries(urun).map(([key, value]) => (
           <div>
             <div className="mt-4"></div>
-            <div id={key}>{key}</div>
+            <div id={key}>{value.length>0 && key}</div>
             <div className="flex flex-wrap">
               {value.map((i) => (
                 <div className="text-center bg-white p-4 relative w-1/4">

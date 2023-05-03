@@ -20,6 +20,7 @@ export default function Sidebar() {
       .get("http://localhost:9000/kategori/kategorial/" + id)
       .then((result) => {
         setKategori(result.data.kategori);
+        console.log(result.data);
         setTur(result.data.tur);
       })
       .catch((err) => {});
