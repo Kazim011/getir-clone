@@ -84,16 +84,25 @@ function RegisterModal() {
               </div>
               <div className="mb-2">
                 <input
-                  {...register("user_name")}
+                  {...register("user_name", {
+                    required: "Bu alan zorunludur",
+                    minLength: {
+                      value: 3,
+                      message: "Ad ve Soyad en 3 karakterli olmalıdır",
+                    },
+                  })}
                   className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="Ad Soyad"
                 />
               </div>{" "}
               <div className="">
                 <input
-                  {...register("user_email")}
+                  {...register("user_email", {
+                    required: "Bu alan zorunludur",
+                  })}
                   className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="E-Posta"
+                  type="email"
                 />
               </div>
               <div className="flex items-center gap-x-3 mb-4 mt-2 ">
