@@ -27,6 +27,9 @@ async function getAllKategori(params) {
 async function getUrunfromKategori(id) {
   return await db("urunler").where("kategori_id", id);
 }
+async function addTur(data) {
+  return await db("tur").insert(data);
+}
 module.exports = {
   getAll,
   getById,
@@ -35,4 +38,5 @@ module.exports = {
   getAllKategori,
   getUrunfromKategori,
   getTur,
+  addTur
 };

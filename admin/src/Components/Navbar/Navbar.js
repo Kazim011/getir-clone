@@ -8,17 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { api } from "../utills/api";
 import { setCheck, setKategori } from "../Redux/Action";
 import { Link, NavLink, useParams } from "react-router-dom";
+import { MdLibraryAdd } from "react-icons/md";
+import { BiMessageSquareAdd } from "react-icons/bi";
 
 export default function Navbar() {
   const token = Cookies.get("admin");
-  const { kategoriler, check } = useSelector((data) => data);
+  const { kategoriler, check, rand } = useSelector((data) => data);
   const dispatch = useDispatch();
-  const { id } = useParams();
-  const handleClickClose = (e) => {
-    console.log(e.currentTarget.role);
-  };
-
-  const handleFormProduct = () => {};
 
   useEffect(() => {
     axios
@@ -28,7 +24,7 @@ export default function Navbar() {
         },
       })
       .then((r) => dispatch(setKategori(r.data)));
-  }, []);
+  }, [rand]);
   return (
     <div className="w-1/5 h-screen shadow-2xl pl-8 ">
       <div className="flex flex-col gap-6 mt-7">
@@ -48,24 +44,25 @@ export default function Navbar() {
                 dispatch(setCheck(!check));
                 localStorage.setItem("check", !check);
               }}
-              role="ss"
             >
               Kategoriler
             </p>
-            {check &&
-              kategoriler.map((i, sayac) => (
-                <NavLink
-                  activeClassName="font-bold"
-                  to={`/kategori/${i.kategori_id}`}
-                  key={sayac}
-                  className="flex gap-x-1"
-                >
-                  <div className="w-8">
-                    <img src={i.kategori_resim}></img>
-                  </div>
-                  <p>{i.kategori_adı}</p>
-                </NavLink>
-              ))}
+            <div  className="max-h-[600px] overflow-y-scroll">
+              {check &&
+                kategoriler.map((i, sayac) => (
+                  <NavLink
+                    activeClassName="font-bold"
+                    to={`/kategori/${i.kategori_id}`}
+                    key={sayac}
+                    className="flex gap-x-1 "
+                  >
+                    <div className="w-8">
+                      <img src={i.kategori_resim}></img>
+                    </div>
+                    <p>{i.kategori_adı}</p>
+                  </NavLink>
+                ))}
+            </div>
           </div>
         </div>
         <NavLink
@@ -74,11 +71,19 @@ export default function Navbar() {
           className=" flex items-center gap-4 cursor-pointer"
         >
           <div>
-            <GoDiffAdded className=" text-3xl" />
+            <BiMessageSquareAdd className=" text-3xl text-blue-400" />
           </div>
           <div>
             <p>Ürün Ekle</p>
           </div>
+        </NavLink>
+        <NavLink
+          className="flex items-center gap-4"
+          activeClassName="font-bold"
+          to="/kategoritur"
+        >
+          <MdLibraryAdd className="text-3xl text-red-700" />
+          <p className="">Kategori&Tur Ekle</p>
         </NavLink>
       </div>
     </div>
