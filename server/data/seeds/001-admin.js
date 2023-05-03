@@ -6,7 +6,7 @@ exports.seed = async function (knex) {
   // Deletes ALL existing entries
 
   //              passwordlar 1234
-  
+
   await knex("admin").truncate();
   await knex("admin").insert([
     {

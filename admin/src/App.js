@@ -16,12 +16,12 @@ function App() {
 
   return (
     <div>
-      <div className="flex">
-        <Navbar />
-        <div className="w-4/5 relative ">
-          <Header />
-          <Switch>
-            <PrivateRouter>
+      <Switch>
+        <PrivateRouter>
+          <div className="flex">
+            <Navbar />
+            <div className="w-4/5 relative ">
+              <Header />
               <div className=" top-36  ss  h-3/4 shadow-2xl rounded-sm z-10 bg-white">
                 <Route exact path="/">
                   <Home />
@@ -33,12 +33,12 @@ function App() {
                   <AddUrun />
                 </Route>
               </div>
-            </PrivateRouter>
-          </Switch>
-          {deleteCheck && <UrunDeleteModal />}
-          {editCheck && <UrunEditModal />}
-        </div>
-      </div>
+            </div>
+          </div>
+        </PrivateRouter>
+      </Switch>
+      {deleteCheck && <UrunDeleteModal />}
+      {editCheck && <UrunEditModal />}
     </div>
   );
 }
