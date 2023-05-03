@@ -1,5 +1,5 @@
 const Kategori = require("./Kategori-model");
-
+const jwt = require("../adminVerify");
 const router = require("express").Router();
 
 router.get("/getkategori", async (req, res, next) => {
@@ -31,5 +31,9 @@ router.get("/kategorial/:id", async (req, res, next) => {
     Kategori.getTur(req.params.id),
   ]);
   return res.status(200).json({ kategori, tur, id: +req.params.id });
+});
+router.post("/addkategori", jwt, async (req, res, next) => {
+  const data = await Kategori.addKategori(req.body);
+  return res.status(200).json({ message: "Başarıyla eklendi" });
 });
 module.exports = router;

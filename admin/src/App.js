@@ -10,18 +10,19 @@ import Header from "./Components/Header/Header";
 import { useSelector } from "react-redux";
 import UrunDeleteModal from "./Components/Admin/UrunEditDelete/UrunDeleteModal";
 import UrunEditModal from "./Components/Admin/UrunEditDelete/UrunEditModal";
+import KategoriTurEkle from "./Components/Kategori&Tur/KategoriTurEkle";
 
 function App() {
   const { deleteCheck, editCheck } = useSelector((data) => data);
 
   return (
     <div>
-      <div className="flex">
-        <Navbar />
-        <div className="w-4/5 relative ">
-          <Header />
-          <Switch>
-            <PrivateRouter>
+      <Switch>
+        <PrivateRouter>
+          <div className="flex">
+            <Navbar />
+            <div className="w-4/5 relative ">
+              <Header />
               <div className=" top-36  ss  h-3/4 shadow-2xl rounded-sm z-10 bg-white">
                 <Route exact path="/">
                   <Home />
@@ -32,13 +33,16 @@ function App() {
                 <Route path="/addurun">
                   <AddUrun />
                 </Route>
+                <Route exact path="/kategoriTur">
+                  <KategoriTurEkle />
+                </Route>
               </div>
-            </PrivateRouter>
-          </Switch>
-          {deleteCheck && <UrunDeleteModal />}
-          {editCheck && <UrunEditModal />}
-        </div>
-      </div>
+            </div>
+          </div>
+        </PrivateRouter>
+      </Switch>
+      {deleteCheck && <UrunDeleteModal />}
+      {editCheck && <UrunEditModal />}
     </div>
   );
 }
