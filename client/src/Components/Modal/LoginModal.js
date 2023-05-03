@@ -15,7 +15,7 @@ function LoginModal() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
     axios
       .post(api + "/userAuth/login", data)
@@ -70,6 +70,11 @@ function LoginModal() {
                   className="w-full p-3 mt-8 outline-none border-2 rounded-md mb-3"
                   placeholder="Telefon Numarası"
                 />
+                <div>
+                  {errors.user_telefon && (
+                    <div>{errors.user_telefon.message}</div>
+                  )}
+                </div>
               </div>
               <div className="bg-yellow-400 rounded-lg">
                 <button className="w-full p-3 text-purple ">
