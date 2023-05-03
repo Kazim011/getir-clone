@@ -13,6 +13,7 @@ export default function AddUrunPanel() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
     axios
@@ -20,7 +21,10 @@ export default function AddUrunPanel() {
         headers: { Authorization: token },
       })
       .then((r) => console.log(r));
+    reset();
   };
+
+  console.log(errors);
 
   const handleClick = (e) => {
     axios
@@ -59,29 +63,49 @@ export default function AddUrunPanel() {
           <label className="font-semibold text-base">Ürün Adı</label>
           <input
             className=" border-2 py-2 px-1 border-gray-300 rounded-md"
-            {...register("urun_adı")}
+            {...register("urun_adı", {
+              required: "Bu alan zorunludur.",
+            })}
           ></input>
+          {errors.urun_adı && (
+            <p className=" text-red-600">{errors.urun_adı.message}</p>
+          )}
         </div>
         <div className="flex flex-col ">
           <label className="font-semibold text-base">Urun Resmi</label>
           <input
             className=" border-2 py-2 px-1 border-gray-300 rounded-md"
-            {...register("urun_resim")}
+            {...register("urun_resim", {
+              required: "Lütfen bir resim url giriniz.",
+            })}
           ></input>
+          {errors.urun_resim && (
+            <p className=" text-red-600">{errors.urun_resim.message}</p>
+          )}
         </div>
         <div className="flex flex-col ">
           <label className="font-semibold text-base">Ürün Birimi</label>
           <input
             className=" border-2 py-2 px-1 border-gray-300 rounded-md"
-            {...register("urun_birim")}
+            {...register("urun_birim", {
+              required: "Bu alan zorunludur.",
+            })}
           ></input>
+          {errors.urun_birim && (
+            <p className=" text-red-600">{errors.urun_birim.message}</p>
+          )}
         </div>
         <div className="flex flex-col ">
           <label className="font-semibold text-base">Ürün Fiyatı</label>
           <input
             className=" border-2 py-2 px-1 border-gray-300 rounded-md"
-            {...register("urun_fiyat")}
+            {...register("urun_fiyat", {
+              required: "Bu alan zorunludur.",
+            })}
           ></input>
+          {errors.urun_fiyat && (
+            <p className=" text-red-600">{errors.urun_fiyat.message}</p>
+          )}
         </div>
         <div className="flex flex-col mt-2   ">
           <label className="font-semibold">Kategoriler</label>

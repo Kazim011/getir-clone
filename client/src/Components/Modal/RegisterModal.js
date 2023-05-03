@@ -15,7 +15,7 @@ function RegisterModal() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const { registers } = useSelector((data) => data);
   const onSubmit = (data) => {
@@ -64,10 +64,23 @@ function RegisterModal() {
               </div>
               <div className="mb-2">
                 <input
-                  {...register("user_telefon")}
-                  className="w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
+                  {...register("user_telefon", {
+                    required: "Bu alan zorunludur",
+                    minLength: {
+                      value: 10,
+                      message: "Telefon numarası en az 10 karakter olmalıdır.",
+                    },
+                  })}
+                  className="www w-full p-3 text-gray-500 text-sm  outline-none border-2 rounded-md mb-3 hover:border-purple-900 focus:border-purple-900"
                   placeholder="Telefon Numarası"
+                  type="number"
                 />
+                {errors.user_telefon && (
+                  <p className=" text-red-600">{errors.user_telefon.message}</p>
+                )}
+                {errors.user_telefon === "minLength" && (
+                  <p text-red-600>{errors.user_telefon.message}</p>
+                )}
               </div>
               <div className="mb-2">
                 <input

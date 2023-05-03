@@ -15,7 +15,7 @@ function LoginModal() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm();
   const onSubmit = (data) => {
     axios
       .post(api + "/userAuth/login", data)
@@ -66,16 +66,22 @@ function LoginModal() {
                 <input
                   {...register("user_telefon", {
                     required: "Lütfen telefon numaranızı giriniz.",
+                    minLength: {
+                      value: 10,
+                      message: "Telefon numarası en az 10 karakter olmalı.",
+                    },
                   })}
                   className="w-full p-3 mt-8 outline-none border-2 rounded-md mb-3"
                   placeholder="Telefon Numarası"
                 />
-                <div>
-                  {errors.user_telefon && (
-                    <div>{errors.user_telefon.message}</div>
-                  )}
-                </div>
               </div>
+              {errors.user_telefon && (
+                <p className=" text-red-600">{errors.user_telefon.message}</p>
+              )}
+              {errors.user_telefon == "minLength" && (
+                <p className=" text-red-600">{errors.user_telefon.message}</p>
+              )}
+
               <div className="bg-yellow-400 rounded-lg">
                 <button className="w-full p-3 text-purple ">
                   Telefon Numarası ile devam et
