@@ -40,7 +40,7 @@ export default function DropdownTur({ check, setCheck, deger, setDeger }) {
               onClick={(e) => {
                 setCheck(false);
                 setDeger(i.urun_tur);
-                setİd(e.target.id);
+                setİd(i.tur_id);
               }}
             >
               <span className="ml-2">{i.urun_tur}</span>
