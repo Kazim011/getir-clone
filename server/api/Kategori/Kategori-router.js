@@ -38,10 +38,14 @@ router.post("/addkategori", jwt, async (req, res, next) => {
 });
 
 router.post("/deletekategori", jwt, async (req, res, next) => {
-  const data = await Kategori.deleteKategori({
-    kategori_id: req.body.kategori_id,
-  });
-  return res.status(200).json({ message: "kategori başarıyla silindi" });
+  try {
+    const data = await Kategori.deleteKategori({
+      kategori_id: req.body.kategori_id,
+    });
+    return res.status(200).json({ message: "kategori başarıyla silindi" });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/updatekategori", async (req, res, next) => {

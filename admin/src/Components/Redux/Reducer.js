@@ -3,7 +3,10 @@ import {
   DELETECHECK,
   EDITCHECK,
   KATEGORİLER,
+  KATEGORİSİL,
   RAND,
+  TUR,
+  TURCHECK,
   URUN,
 } from "./Action";
 
@@ -13,7 +16,10 @@ const initalState = {
   deleteCheck: false,
   editCheck: false,
   urun: {},
+  tur: [],
   rand: 0,
+  kategoriSil: false,
+  turCheck: false,
 };
 
 const Reducer = (state = initalState, action) => {
@@ -23,6 +29,8 @@ const Reducer = (state = initalState, action) => {
         ...state,
         kategoriler: action.payload,
       };
+    case KATEGORİSİL:
+      return { ...state, kategoriSil: action.payload };
     case CHECK:
       return {
         ...state,
@@ -41,6 +49,16 @@ const Reducer = (state = initalState, action) => {
       return {
         ...state,
         rand: action.payload,
+      };
+      case TURCHECK:
+        return {
+          ...state,
+          rand: action.payload,
+        };
+    case TUR:
+      return {
+        ...state,
+        tur: action.payload,
       };
     default:
       return state;

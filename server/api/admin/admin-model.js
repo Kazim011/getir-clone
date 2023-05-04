@@ -30,6 +30,9 @@ async function getUrunfromKategori(id) {
 async function addTur(data) {
   return await db("tur").insert(data);
 }
+async function turDelete(id) {
+  return await db("tur").where("tur_id", id).del();
+}
 module.exports = {
   getAll,
   getById,
@@ -38,5 +41,6 @@ module.exports = {
   getAllKategori,
   getUrunfromKategori,
   getTur,
-  addTur
+  addTur,
+  turDelete,
 };

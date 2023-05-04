@@ -48,7 +48,7 @@ export default function Navbar() {
             >
               Kategoriler
             </p>
-            <div className="max-h-[600px] overflow-y-scroll">
+            <div className="max-h-[400px] overflow-y-scroll">
               {check &&
                 kategoriler.map((i, sayac) => (
                   <NavLink

@@ -20,7 +20,10 @@ export default function KategoriTurEkle() {
           },
           { headers: { Authorization: token } }
         )
-        .then((r) => dispatch(setRand()));
+        .then((r) => {
+          dispatch(setRand());
+          reset();
+        });
     } else if (e.target.name == "kategoritur") {
       console.log(data.kategori_id);
       axios
@@ -39,6 +42,7 @@ export default function KategoriTurEkle() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
