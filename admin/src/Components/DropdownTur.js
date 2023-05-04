@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -40,7 +40,7 @@ export default function DropdownTur({ check, setCheck, deger, setDeger }) {
               onClick={(e) => {
                 setCheck(false);
                 setDeger(i.urun_tur);
-                setİd(e.target.id);
+                setİd(i.tur_id);
               }}
             >
               <span className="ml-2">{i.urun_tur}</span>
