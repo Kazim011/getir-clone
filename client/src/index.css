@@ -35,6 +35,23 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+@media only screen and (max-width: 375px) {
+  .slider-bg {
+    background-image: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .gizli-image {
+    display: none;
+  }
+
+  .navlink-color:not(:first-child) {
+    display: none;
+  }
+}
+
 .kampanya {
   background-image: url(https://cdn.getir.com/getirweb-images/common/illustration/doodle.png);
 }
