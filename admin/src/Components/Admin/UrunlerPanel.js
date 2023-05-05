@@ -37,13 +37,13 @@ export default function UrunlerPanel() {
       <div className="flex flex-wrap  max-h-[500px] h-[500px] overflow-y-scroll   w-3/4 m-auto kategori-scroll gap-y-3 gap-x-2 mt-8">
         {filteredUrun.length > 0 ? (
           filteredUrun.map((i) => (
-            <div className="h-64  relative text-center border rounded-md border-gray-400 p-4 ">
+            <div className="h-64  relative text-center border rounded-md border-gray-400  ">
               <div className="w-40">
                 <img src={i.urun_resim}></img>
               </div>
-              <p className="text-red-700 text-sm font-semibold">{i.urun_adı}</p>
+              <p className="text-red-700 text-sm font-semibold w-40">{i.urun_adı}</p>
               <p className="text-sm text-gray-400">{i.urun_birim}</p>
-              <p className="font-semibold  text-gray-500">₺{i.urun_fiyat}</p>
+              <p className="font-semibold  text-gray-500 ">₺{i.urun_fiyat}</p>
               <div className="absolute  top-1 right-8 text-2xl text-blue-600 cursor-pointer">
                 <UrunEdit i={i} />
               </div>
