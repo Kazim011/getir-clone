@@ -1,4 +1,5 @@
 import {
+  ANALISTCHECK,
   CHECK,
   DELETECHECK,
   EDITCHECK,
@@ -20,6 +21,7 @@ const initalState = {
   rand: 0,
   kategoriSil: false,
   turCheck: false,
+  analistCheck: false,
 };
 
 const Reducer = (state = initalState, action) => {
@@ -50,16 +52,18 @@ const Reducer = (state = initalState, action) => {
         ...state,
         rand: action.payload,
       };
-      case TURCHECK:
-        return {
-          ...state,
-          rand: action.payload,
-        };
+    case TURCHECK:
+      return {
+        ...state,
+        rand: action.payload,
+      };
     case TUR:
       return {
         ...state,
         tur: action.payload,
       };
+    case ANALISTCHECK:
+      return { ...state, analistCheck: action.payload };
     default:
       return state;
   }

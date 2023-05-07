@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const Siparis = require("../Siparis/Siparis-model");
+const Cart = require("../Cart/Cart-model");
 const tokenVerify = require("../adminVerify");
 const Admin = require("./admin-model");
 router.get("/tumurun", tokenVerify, async (req, res, next) => {
@@ -39,12 +41,12 @@ router.post("/odeme", tokenVerify, async (req, res, next) => {
         siparis_id,
       });
     }
-    console.log(new Date());
     await Admin.siparisStatus({
       siparis_tarih: new Date().toString(),
       siparis_adres: "İstanbul",
       siparis_id,
     });
+    await Cart.resetCart(req.user.user_id);
     return res.status(200).json({ message: "basarılır" });
   } catch (error) {
     next(error);
@@ -52,7 +54,9 @@ router.post("/odeme", tokenVerify, async (req, res, next) => {
 });
 router.get("/siparisler", tokenVerify, async (req, res, next) => {
   const data = await Admin.hazırlananSiparisler();
-  console.log(data);
+  for (let i = 0; i < data.length; i++) {
+    data[i].toplam = await Siparis.toplam(data[i].siparis_id);
+  }
   return res.status(200).json(data);
 });
 module.exports = router;

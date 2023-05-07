@@ -39,6 +39,7 @@ router.post(
       res.status(200).json({
         message: `Hoşgeldin ${req.body.email}`,
         token,
+        role: req.admin.admin_role,
       });
     } else {
       return res

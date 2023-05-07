@@ -14,6 +14,7 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 
 export default function Navbar() {
   const token = Cookies.get("admin");
+  const role = Cookies.get("role");
   const { kategoriler, check, rand } = useSelector((data) => data);
   const dispatch = useDispatch();
 
@@ -35,65 +36,74 @@ export default function Navbar() {
           </div>
           <div className="pl-4">INTERBANK</div>
         </div>
-        <div className="flex cursor-pointer ">
-          <div className="">
-            <FaProductHunt className="text-3xl" />
-          </div>
-          <div className="pl-4 font-medium">
-            <p
-              onClick={() => {
-                dispatch(setCheck(!check));
-                localStorage.setItem("check", !check);
-              }}
-            >
-              Kategoriler
-            </p>
-            <div className="max-h-[400px] overflow-y-scroll">
-              {check &&
-                kategoriler.map((i, sayac) => (
-                  <NavLink
-                    activeClassName="font-bold"
-                    to={`/kategori/${i.kategori_id}`}
-                    key={sayac}
-                    className="flex gap-x-1 "
-                  >
-                    <div className="w-8">
-                      <img src={i.kategori_resim}></img>
-                    </div>
-                    <p>{i.kategori_adı}</p>
-                  </NavLink>
-                ))}
+        {role == "admin" && (
+          <div>
+            <div className="flex cursor-pointer ">
+              <div className="">
+                <FaProductHunt className="text-3xl" />
+              </div>
+              <div className="pl-4 font-medium">
+                <p
+                  onClick={() => {
+                    dispatch(setCheck(!check));
+                    localStorage.setItem("check", !check);
+                  }}
+                >
+                  Kategoriler
+                </p>
+                <div className="max-h-[400px] overflow-y-scroll">
+                  {check &&
+                    kategoriler.map((i, sayac) => (
+                      <NavLink
+                        activeClassName="font-bold"
+                        to={`/kategori/${i.kategori_id}`}
+                        key={sayac}
+                        className="flex gap-x-1 "
+                      >
+                        <div className="w-8">
+                          <img src={i.kategori_resim}></img>
+                        </div>
+                        <p>{i.kategori_adı}</p>
+                      </NavLink>
+                    ))}
+                </div>
+              </div>
             </div>
+            <NavLink
+              activeClassName="font-bold"
+              to="/addurun"
+              className=" flex items-center gap-4 cursor-pointer"
+            >
+              <div>
+                <BiMessageSquareAdd className=" text-3xl text-blue-400" />
+              </div>
+              <div>
+                <p>Ürün Ekle</p>
+              </div>
+            </NavLink>
+            <NavLink
+              className="flex items-center gap-4"
+              activeClassName="font-bold"
+              to="/kategoritur"
+            >
+              <MdLibraryAdd className="text-3xl text-red-700" />
+              <p className="">Kategori&Tur Ekle</p>
+            </NavLink>
+            <NavLink
+              className="flex items-center gap-4"
+              activeClassName="font-bold"
+              to="/kategoritursil"
+            >
+              <FiFolderMinus className="text-3xl text-blue-700" />
+              <p className="">Kategori&Tur Sil</p>
+            </NavLink>
           </div>
-        </div>
-        <NavLink
-          activeClassName="font-bold"
-          to="/addurun"
-          className=" flex items-center gap-4 cursor-pointer"
-        >
+        )}
+        {role == "analist" && (
           <div>
-            <BiMessageSquareAdd className=" text-3xl text-blue-400" />
+            <NavLink className="font-semibold" to="/siparisler">Siparişler</NavLink>
           </div>
-          <div>
-            <p>Ürün Ekle</p>
-          </div>
-        </NavLink>
-        <NavLink
-          className="flex items-center gap-4"
-          activeClassName="font-bold"
-          to="/kategoritur"
-        >
-          <MdLibraryAdd className="text-3xl text-red-700" />
-          <p className="">Kategori&Tur Ekle</p>
-        </NavLink>
-        <NavLink
-          className="flex items-center gap-4"
-          activeClassName="font-bold"
-          to="/kategoritursil"
-        >
-          <FiFolderMinus className="text-3xl text-blue-700" />
-          <p className="">Kategori&Tur Sil</p>
-        </NavLink>
+        )}
       </div>
     </div>
   );

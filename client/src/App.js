@@ -13,7 +13,6 @@ function App() {
         <Route exact path="/kategori/:id">
           <UrunlerKategori />
         </Route>
-        <Route exact path="/TemelGıda/:id"></Route>
         <Route exact path="/cart">
           <Cart />
         </Route>

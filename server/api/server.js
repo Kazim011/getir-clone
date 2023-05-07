@@ -7,6 +7,7 @@ const UserAuth = require("./UserAuth/Auth-router");
 const User = require("./User/User-router");
 const Cart = require("./Cart/Cart-router");
 const Admin = require("./admin/Admin-router");
+const Siparisler = require("./Siparis/Siparis-router");
 const cors = require("cors");
 
 app.use(express.json());
@@ -17,12 +18,13 @@ app.use("/urun", urun);
 app.use("/auth", AdminAuth);
 app.use("/userAuth", UserAuth);
 app.use("/user", User);
-app.use("/cart", Cart)
+app.use("/cart", Cart);
 app.use("/admin", Admin);
+app.use("/siparisler", Siparisler);
 app.use((err, req, res, next) => {
   // eslint-disable-line
   res.status(err.status || 500).json({
-    message: err.message
+    message: err.message,
   });
 });
 

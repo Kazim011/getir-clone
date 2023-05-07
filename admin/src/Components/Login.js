@@ -17,7 +17,8 @@ export default function Login() {
   const onSubmit = (data) => {
     axios.post(api + "/auth/login", data).then((r) => {
       Cookies.set("admin", r.data.token);
-      history.push("/");
+      Cookies.set("role", r.data.role);
+      history.go(0)
     });
   };
 

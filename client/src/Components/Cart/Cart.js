@@ -14,6 +14,16 @@ export default function CartComponent() {
   const history = useHistory();
   const token = Cookies.get("token");
   const { rand, sepet, total } = useSelector((data) => data);
+  console.log(sepet);
+  const handleOdeme = () => {
+    axios
+      .post(
+        api + "/admin/odeme",
+        { sepet },
+        { headers: { Authorization: token } }
+      )
+      .then((r) => dispatch(setRand(  )));
+  };
   const handleResetCart = () => {
     axios
       .get(api + "/cart/resetcart", { headers: { Authorization: token } })
@@ -87,7 +97,10 @@ export default function CartComponent() {
             ₺{total?.toFixed(2)}
           </p>
         </div>
-        <button className="w-full py-3  text-white bg-purple-800 text-sm font-semibold mt-5 rounded-lg ">
+        <button
+          onClick={handleOdeme}
+          className="w-full py-3  text-white bg-purple-800 text-sm font-semibold mt-5 rounded-lg "
+        >
           Ödemeye Geç
         </button>
       </div>

@@ -25,6 +25,7 @@ export default function Kategoriler() {
           >
             <div className="mb-3 ">
               <img
+              alt="#"
                 className="w-12 m-auto border rounded-md  "
                 src={i.kategori_resim}
               ></img>

@@ -7,6 +7,7 @@ export const RAND = "RAND";
 export const TUR = "TUR";
 export const KATEGORİSİL = "KATEGORİSİL";
 export const TURCHECK = "TURCHECK";
+export const ANALISTCHECK = "ANALISTCHECK";
 export function setKategori(payload) {
   return {
     type: KATEGORİLER,
@@ -52,6 +53,12 @@ export function setKategoriSil(payload) {
 export function setTurCheck(payload) {
   return {
     type: TURCHECK,
+    payload,
+  };
+}
+export function setAnalistCheck(payload) {
+  return {
+    type: ANALISTCHECK,
     payload,
   };
 }

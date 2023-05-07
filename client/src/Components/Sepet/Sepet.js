@@ -26,7 +26,7 @@ export default function Sepet() {
         <div className="">
           <div>Sepetim</div>
         </div>
-        <div className=" overflow-y-scroll max-h-[330px] mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
+        <div className="  mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
           {sepet.length < 1 ? (
             <div className="flex flex-col items-center justify-center h-80">
               <div className="mb-8">
@@ -44,19 +44,21 @@ export default function Sepet() {
             </div>
           ) : (
             <div className="px-5 divide-y-2 divide-gray-100 ">
-              {sepet.map((i) => (
-                <div className="flex py-3  items-center ">
-                  <div className="w-2/3">
-                    <p className="text-gray-400">{i.urun_adı}</p>
-                    <p className="text-purple-800 font-semibold">
-                      ₺{i.urun_fiyat}
-                    </p>
+              <div className="max-h-[350px] overflow-auto">
+                {sepet.map((i) => (
+                  <div className="flex py-3  items-center ">
+                    <div className="w-2/3">
+                      <p className="text-gray-400">{i.urun_adı}</p>
+                      <p className="text-purple-800 font-semibold">
+                        ₺{i.urun_fiyat}
+                      </p>
+                    </div>
+                    <div className="w-1/3">
+                      <SepetButton i={i} />
+                    </div>
                   </div>
-                  <div className="w-1/3">
-                    <SepetButton i={i} />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
               <div className="flex py-5 items-center">
                 <Link
                   className="w-2/3 py-3 bg-purple-900 text-center border-2 text-white border-purple-900 font-semibold rounded-l-lg"

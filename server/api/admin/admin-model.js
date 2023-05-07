@@ -43,13 +43,18 @@ async function siparisStatus(data) {
   return await db("siparis_status").insert(data);
 }
 async function hazırlananSiparisler(params) {
- return await db("siparis as s")
+  return await db("siparis as s")
     .leftJoin("siparis_status as ss", "ss.siparis_id", "s.siparis_id")
     .leftJoin("user as u", "u.user_id", "s.user_id")
-    .where("ss.siparis_durum","hazırlanıyor")
+    .where("ss.siparis_durum", "hazırlanıyor")
     .groupBy("s.siparis_id")
     .orderBy("ss.siparis_tarih")
-    .select("u.user_name", "ss.siparis_tarih");
+    .select(
+      "u.user_name",
+      "ss.siparis_tarih",
+      "s.siparis_id",
+      "ss.siparis_adres"
+    );
 }
 module.exports = {
   getAll,
