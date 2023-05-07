@@ -4,15 +4,15 @@ import data from "./data";
 
 export default function Kampanyalar() {
   return (
-    <div className="w-3/4 m-auto">
-      <h6 className="font-semibold mb-2">Kampanyalar</h6>
-      <div className="kampanya flex items-center justify-between relative overflow-hidden bg-indigo-400 z-1 mt-6 mb-6 rounded-lg">
+    <div className=" m-auto max-2xl:w-11/12 max-md:w-full">
+      <h6 className="font-semibold mb-2 max-md:hidden">Kampanyalar</h6>
+      <div className="kampanya flex items-center justify-between relative overflow-hidden bg-indigo-700 z-1 mt-6 max-md:mb-0 max-xl:mb-6 rounded-lg">
         <div className="flex flex-col items-start h-full justify-center ml-12 text-white">
           <h2 className="font-bold text-2xl mb-3">Getir'i indirin!</h2>
           <span className="text-base font-semibold">
             İstediğiniz ürünleri dakikalar içinde kapınıza getirelim.
           </span>
-          <div className="flex gap-3 pt-8">
+          <div className="flex gap-3 pt-8 max-md:flex-col ">
             <img
               className="w-full"
               src="https://getir.com/_next/static/images/appstore-tr-141ed939fceebdcee96af608fa293b31.svg"
@@ -30,7 +30,7 @@ export default function Kampanyalar() {
             />
           </div>
         </div>
-        <div className=" ml-36">
+        <div className=" ml-36 max-md:hidden">
           <img
             className="w-full h-full object-contain"
             src={phoneLanding}
@@ -38,9 +38,9 @@ export default function Kampanyalar() {
           />
         </div>
       </div>
-      <div className="flex gap-3 mt-16">
+      <div className="flex  max-lg:w-full max-md:flex-wrap gap-3  max-md:mt-0 max-2xl:mt-10  max-md:p-5">
         {data.map((item) => (
-          <div className="w-1/3 shadow-md text-center p-3">
+          <div className="w-1/3   shadow-md text-center p-3 max-md:w-full bg-white ">
             <div>
               <img className="w-40 m-auto" src={item.img} alt="" />
             </div>

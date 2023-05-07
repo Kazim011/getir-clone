@@ -66,7 +66,7 @@ export default function Navbar() {
               getir<span className="navlink-color">su</span>
             </NavLink>
           </div>
-          <div className="flex items-center gap-x-4 mt-1">
+          <div className="lg:flex  md:items-center  lg:items-center gap-x-4 mt-1 md:hidden sm:hidden max-sm:hidden  ">
             <div className="flex items-center gap-x-1 cursor-pointer">
               <div className="flex items-center gap-x-2 mr-2">
                 <TfiWorld className="text-2xl" />

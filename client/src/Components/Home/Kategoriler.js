@@ -15,13 +15,13 @@ export default function Kategoriler() {
       });
   }, []);
   return (
-    <div className="w-3/4 m-auto">
-      <div className="text-sm font-semibold mt-8">Kategoriler</div>
-      <div className="flex flex-wrap ">
+    <div className="max-md:w-full  xl:m-auto max-2xl:w-11/12 m-auto  ">
+      <div className="text-sm font-semibold mt-8 max-lg:ml-5 ">Kategoriler</div>
+      <div className=" flex flex-row flex-wrap max-lg:gap-0  max-xl:gap-3 ">
         {kategori.map((i) => (
           <Link
             to={`/kategori/${i.kategori_id}`}
-            className="p-6 hover:bg-gray-100 hover:rounded-md"
+            className="  hover:bg-gray-100 hover:rounded-md sm:w-1/4 max-sm:w-1/4 md:w-1/5 lg:w-[100px] max-2xl:w-[140px]  p-1  "
           >
             <div className="mb-3 ">
               <img
@@ -29,7 +29,7 @@ export default function Kategoriler() {
                 src={i.kategori_resim}
               ></img>
             </div>
-            <div className="font-semibold text-gray-500  hover:text-purple-500">
+            <div className="font-semibold  text-gray-500 max-lg:text-center  hover:text-purple-500">
               {i.kategori_adı}
             </div>
             <div></div>
