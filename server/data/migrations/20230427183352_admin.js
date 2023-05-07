@@ -7,6 +7,7 @@ exports.up = function (knex) {
     tbl.increments("admin_id");
     tbl.string("email").notNullable().unique();
     tbl.string("password").notNullable();
+    tbl.string("admin_role").notNullable();
   });
 };
 

@@ -27,4 +27,32 @@ router.post("/deletetur", tokenVerify, async (req, res, next) => {
     next(error);
   }
 });
+router.post("/odeme", tokenVerify, async (req, res, next) => {
+  try {
+    const { sepet } = req.body;
+    console.log(sepet);
+    const [siparis_id] = await Admin.addSiparis({ user_id: req.user.user_id });
+    for (let i = 0; i < sepet.length; i++) {
+      await Admin.addSiparisUrun({
+        urun_adet: sepet[i].urun_adet,
+        urun_id: sepet[i].urun_id,
+        siparis_id,
+      });
+    }
+    console.log(new Date());
+    await Admin.siparisStatus({
+      siparis_tarih: new Date().toString(),
+      siparis_adres: "İstanbul",
+      siparis_id,
+    });
+    return res.status(200).json({ message: "basarılır" });
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/siparisler", tokenVerify, async (req, res, next) => {
+  const data = await Admin.hazırlananSiparisler();
+  console.log(data);
+  return res.status(200).json(data);
+});
 module.exports = router;

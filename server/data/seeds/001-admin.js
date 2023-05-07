@@ -12,14 +12,17 @@ exports.seed = async function (knex) {
     {
       email: "baris@gmail.com",
       password: "$2a$12$3H9UKvMXcUkA5w39TSE6X.kc8F956ThRi0O.RMn0zsZ9M4SI3z0sS",
+      admin_role: "admin",
     },
     {
-      email: "sirzatnergiz@gmail.com",
+      email: "sirzat@gmail.com",
       password: "$2a$12$3H9UKvMXcUkA5w39TSE6X.kc8F956ThRi0O.RMn0zsZ9M4SI3z0sS",
+      admin_role: "analist",
     },
     {
-      email: "kazimnergiz123@gmail.com",
+      email: "kazim@gmail.com",
       password: "$2a$12$3H9UKvMXcUkA5w39TSE6X.kc8F956ThRi0O.RMn0zsZ9M4SI3z0sS",
+      admin_role: "analist",
     },
   ]);
 };

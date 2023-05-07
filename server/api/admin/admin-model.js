@@ -33,14 +33,36 @@ async function addTur(data) {
 async function turDelete(id) {
   return await db("tur").where("tur_id", id).del();
 }
+async function addSiparisUrun(data) {
+  return await db("siparis_urun").insert(data);
+}
+async function addSiparis(data) {
+  return await db("siparis").insert(data);
+}
+async function siparisStatus(data) {
+  return await db("siparis_status").insert(data);
+}
+async function hazırlananSiparisler(params) {
+ return await db("siparis as s")
+    .leftJoin("siparis_status as ss", "ss.siparis_id", "s.siparis_id")
+    .leftJoin("user as u", "u.user_id", "s.user_id")
+    .where("ss.siparis_durum","hazırlanıyor")
+    .groupBy("s.siparis_id")
+    .orderBy("ss.siparis_tarih")
+    .select("u.user_name", "ss.siparis_tarih");
+}
 module.exports = {
   getAll,
+  siparisStatus,
   getById,
   getByFilter,
   create,
+  hazırlananSiparisler,
   getAllKategori,
   getUrunfromKategori,
   getTur,
   addTur,
   turDelete,
+  addSiparisUrun,
+  addSiparis,
 };
