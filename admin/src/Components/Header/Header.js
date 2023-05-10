@@ -21,7 +21,7 @@ export default function Header() {
         </div>
       </div>
       <div className="mt-10 flex text-white justify-between">
-        <div className="text-2xl font-bold">INTERBANK</div>
+        <div className="text-2xl font-bold">GETİR</div>
         <div className="flex text-lg gap-5">
           <div>Member</div>
           <div>Member Portal</div>

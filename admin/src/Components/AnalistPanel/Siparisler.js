@@ -35,8 +35,8 @@ export default function Siparisler() {
   }, [rand]);
   return (
     <div class="relative max-h-[728px] overflow-auto shadow-md sm:rounded-lg">
-      <table class="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs   text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <table class="w-full  text-sm text-left text-gray-500">
+        <thead class="text-xs   text-gray-700 uppercase bg-gray-50">
           <tr>
             <th scope="col" class="px-6 py-3 ">
               Müşteri İsmi
@@ -60,10 +60,10 @@ export default function Siparisler() {
         </thead>
         <tbody className="mt-10 pt-10">
           {siparis.map((i) => (
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <tr class="bg-white border-b">
               <th
                 scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
               >
                 {i.user_name}
               </th>
@@ -79,7 +79,7 @@ export default function Siparisler() {
                   onClick={() => {
                     dispatch(setAnalistCheck(i.siparis_id));
                   }}
-                  class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  class="font-medium text-blue-600  hover:underline"
                 >
                   Detay
                 </button>
@@ -87,7 +87,7 @@ export default function Siparisler() {
               <td class="px-6 py-4 ">
                 <button
                   onClick={() => changeStatus(i)}
-                  class="font-medium text-blue-600  dark:text-blue-500 hover:underline flex items-center gap-x-2"
+                  class="font-medium text-blue-600   hover:underline flex items-center gap-x-2"
                 >
                   <p>Onayla</p>
                   <AiOutlineCheckCircle className="text-2xl text-green-600" />

@@ -36,8 +36,8 @@ export default function UrunDetayModal() {
             <AiOutlineCloseCircle className="text-3xl text-red-700" />
           </div>
           <div class="relative max-h-[500px] overflow-y-auto overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left text-gray-500 ">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                   <th scope="col" class="px-6 py-3">
                     Urun Resim
@@ -58,10 +58,10 @@ export default function UrunDetayModal() {
               </thead>
               <tbody>
                 {urun.map((i) => (
-                  <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                  <tr class="bg-white border-b ">
                     <th
                       scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white w-20"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap  w-20"
                     >
                       <img src={i.urun_resim} />
                     </th>

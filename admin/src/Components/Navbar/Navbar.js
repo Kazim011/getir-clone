@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="">
             <AiOutlineBank />
           </div>
-          <div className="pl-4">INTERBANK</div>
+          <div className="pl-4">GETİR</div>
         </div>
         {role == "admin" && (
           <div>
@@ -101,7 +101,9 @@ export default function Navbar() {
         )}
         {role == "analist" && (
           <div>
-            <NavLink className="font-semibold" to="/siparisler">Siparişler</NavLink>
+            <NavLink className="font-semibold" to="/siparisler">
+              Siparişler
+            </NavLink>
           </div>
         )}
       </div>

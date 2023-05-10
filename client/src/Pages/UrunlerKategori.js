@@ -3,6 +3,7 @@ import Aksesuar from "../Components/Urunler/Aksesuar";
 import Sidebar from "../Components/Siderbar/Sidebar";
 import Sepet from "../Components/Sepet/Sepet";
 import Urunler from "../Components/Urunler/Urunler";
+import Footer from "../Components/Footer/Footer";
 
 export default function UrunlerKategori() {
   return (

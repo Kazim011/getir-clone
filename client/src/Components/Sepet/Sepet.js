@@ -26,9 +26,9 @@ export default function Sepet() {
         <div className="">
           <div>Sepetim</div>
         </div>
-        <div className="  mt-1  bg-white   border-2 border-yellow-400 rounded-xl">
+        <div className=" ">
           {sepet.length < 1 ? (
-            <div className="flex flex-col items-center justify-center h-80">
+            <div className="flex flex-col items-center justify-center bg-white  mt-1    border-2 border-yellow-400 rounded-xl  h-80">
               <div className="mb-8">
                 <img
                   alt="#"
@@ -43,8 +43,8 @@ export default function Sepet() {
               </p>
             </div>
           ) : (
-            <div className="px-5 divide-y-2 divide-gray-100 ">
-              <div className="max-h-[350px] overflow-auto">
+            <div className=" ">
+              <div className=" px-5 divide-y-2 bg-white divide-gray-100 max-h-[350px] mt-1    border-2 border-yellow-400 rounded-xl  overflow-y-auto overflow-x-hidden ">
                 {sepet.map((i) => (
                   <div className="flex py-3  items-center ">
                     <div className="w-2/3">
